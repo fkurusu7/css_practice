@@ -1,0 +1,49 @@
+.container {
+  background-color: var(--color-dark--1);
+  height: 50vh;
+  margin: 25vh auto 0;
+  padding: 0.5rem;
+  width: 80vw;
+
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  align-items: stretch;
+}
+
+.item {
+  background-color: var(--color-dark--2);
+  font-size: 1.3rem;
+  margin: 0.5rem;
+  text-align: center;
+
+  /* flex-grow: ;
+  flex-shrink: ;
+  
+  How much room does this one can take up 
+  flex-basis: ;
+   
+  prop flex is a shorthand for the 3 above
+  flex: ;
+  order: ;
+  align-self: ; */
+}
+
+.one {
+  /* flex-grow: 0; */
+  /* flex-shrink: 1; */
+  /* flex-basis: 250px; */
+  /* flex: 0 1 250px; */
+  /* This assumes a grow and shrink of 1 */
+  /* flex: 250px; */
+  flex: 2 250px;
+}
+.two {
+  flex: 1 2 250px;
+  align-self: center; /* flex-start, stretch flex-end; */
+  order: 1; /* to the front, -1 to the start*/
+}
+.three {
+  flex: 3 1 250px;
+  order: -1;
+}
