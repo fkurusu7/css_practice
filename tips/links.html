@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Style underlines!</title>
+    <link rel="stylesheet" href="../global_styles.css" />
+    <style>
+      .container {
+        display: flex;
+        flex-direction: column;
+        align-items: stretch;
+        justify-content: center;
+
+        height: 50vh;
+        margin: 25vh auto 0;
+        padding: 2rem;
+        text-align: center;
+        width: 60%;
+      }
+      h1 {
+        font-size: 4rem;
+        margin-bottom: 1rem;
+      }
+      .link {
+        color: var(--color-brand--1);
+        text-decoration: none;
+      }
+      .reactjs {
+        text-decoration: 0.2rem var(--color-brand--2) underline solid;
+        text-underline-offset: 0.5rem;
+      }
+    </style>
+  </head>
+  <body>
+    <main class="container">
+      <h1>Styling Links</h1>
+      <p>Deep Dive Into Modern Web Development</p>
+      <p>
+        Full Stack open (<a
+          href="https://react.dev/"
+          class="link reactjs"
+          target="_blank"
+          >React.js</a
+        >
+        &
+        <a href="https://nodejs.org/en" class="link nodejs" target="_blank">
+          Node.js</a
+        >)
+      </p>
+      <p>
+        The
+        <a
+          href="https://fullstackopen.com/en/about/"
+          class="link course"
+          target="_blank"
+        >
+          Course
+        </a>
+      </p>
+      <p>
+        <a
+          href="https://fullstackopen.com/es/#course-contents"
+          class="link content"
+          target="_blank"
+        >
+          Course Content
+        </a>
+      </p>
+    </main>
+  </body>
+</html>
