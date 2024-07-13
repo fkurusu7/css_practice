@@ -1,0 +1,85 @@
+:root {
+  --text-primary: #b6b6b6;
+  --text-secondary: #ececec;
+  --bg-primary: #20262a;
+  --bg-secondary: #141418;
+}
+
+body::-webkit-scrollbar {
+  width: 2.5rem;
+}
+body::-webkit-scrollbar-track {
+  background-color: var(--color-dark--1);
+}
+body::-webkit-scrollbar-thumb {
+  background-color: var(--color-brand--2);
+}
+
+main {
+  margin: 0 2rem 0 5rem;
+  padding: 2rem;
+  text-align: justify;
+}
+
+.navbar {
+  background-color: var(--bg-primary);
+  height: 100vh;
+  position: fixed;
+  width: 5.5rem;
+  transition: all 200ms ease-out;
+}
+
+.navbar:hover {
+  width: 16rem;
+}
+
+.navbar:hover .link-text {
+  display: block;
+}
+
+.navbar-nav {
+  list-style: none;
+  height: 100%;
+  width: 100%;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.nav-item {
+  width: 100%;
+}
+
+.nav-item:last-child {
+  margin-top: auto;
+}
+
+.nav-link {
+  display: flex;
+  align-items: center;
+  column-gap: 2rem;
+
+  color: var(--color-brand--2);
+  filter: grayscale(20%) opacity(0.7);
+  height: 5rem;
+  text-decoration: none;
+  transition: all 200ms ease;
+  width: 100%;
+}
+
+.nav-link:hover {
+  filter: grayscale(0) opacity(1);
+  background-color: var(--color-dark--2);
+}
+.link-text {
+  display: none;
+  font-size: 1.4rem;
+}
+
+.svg {
+  display: inline-block;
+  fill: var(--color-brand--2);
+  margin-left: 1.5rem;
+  width: 2rem;
+}
