@@ -23,14 +23,8 @@ main {
 
 .navbar {
   background-color: var(--bg-primary);
-  height: 100vh;
   position: fixed;
-  width: 5.5rem;
-  transition: all 200ms ease-out;
-}
-
-.navbar:hover {
-  width: 16rem;
+  transition: all 500ms ease-out;
 }
 
 .navbar:hover .link-text {
@@ -82,4 +76,77 @@ main {
   fill: var(--color-brand--2);
   margin-left: 1.5rem;
   width: 2rem;
+}
+
+.logo {
+  color: var(--color-brand--1);
+  background-color: var(--bg-secondary);
+  margin-bottom: 2rem;
+  text-align: center;
+  text-transform: uppercase;
+  width: 100%;
+  letter-spacing: 0.3ch;
+}
+
+.logo .nav-link .link-text {
+  margin-left: 1rem;
+}
+
+.logo svg {
+  transform: rotate(0deg);
+  transition: transform 800ms ease-out;
+}
+
+.navbar:hover .logo svg {
+  transform: rotate(-180deg);
+}
+/* LARGE SCREENS */
+@media only screen and (min-width: 601px) {
+  .navbar {
+    top: 0;
+    height: 100vh;
+    width: 5.5rem;
+  }
+
+  .navbar:hover {
+    width: 16rem;
+  }
+
+  .navbar:hover .link-text {
+    display: inline;
+    transition: opacity 600ms;
+  }
+}
+
+/* SMALL SCREENS */
+@media only screen and (max-width: 600px) {
+  .navbar {
+    bottom: 0;
+    height: 5rem;
+    width: 100%;
+  }
+  .navbar:hover .link-text,
+  .link-text {
+    display: none;
+  }
+  .logo {
+    display: none;
+  }
+
+  .navbar-nav {
+    flex-direction: row;
+    justify-content: space-around;
+    gap: 0;
+  }
+  .nav-item {
+    width: fit-content;
+  }
+  .nav-link {
+    justify-content: center;
+    align-items: center;
+    width: 5rem;
+  }
+  main {
+    margin: 0;
+  }
 }
