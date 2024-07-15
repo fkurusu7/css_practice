@@ -39,5 +39,9 @@ a,
 a:active,
 a:visited {
   text-decoration: none;
-  color: #2895fb;
+  color: var(--color-light--2);
+}
+
+ul {
+  list-style: none;
 }
