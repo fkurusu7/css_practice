@@ -63,6 +63,22 @@
         navbarItem.forEach((item) => item.classList.remove("active"));
 
         this.classList.add("active");
+        const indicator = document.querySelector(".indicator");
+
+        // Get the index of the clicked item
+        const index = Array.from(navbarItem).indexOf(this);
+
+        // Calculate the cumulative width of previous items
+        const cumulativeWidth = Array.from(navbarItem)
+          .slice(0, index)
+          .reduce((sum, item) => {
+            return sum + item.getBoundingClientRect().width;
+          }, 0);
+
+        // Move the indicator only if this item was clicked
+        if (this === navbarItem[index]) {
+          indicator.style.transform = `translateX(${cumulativeWidth}px)`;
+        }
       }
 
       navbarItem.forEach((item) => item.addEventListener("click", activeLink));

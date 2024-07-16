@@ -119,7 +119,7 @@
 
   background-color: transparent;
   border-top-right-radius: 2rem;
-  box-shadow: 0 -1rem 0 0 var(--color-dark--0);
+  box-shadow: 1px -1rem 0 0 var(--color-dark--0);
 }
 
 .indicator::after {
@@ -134,5 +134,5 @@
 
   background-color: transparent;
   border-top-left-radius: 2rem;
-  box-shadow: 0 -1rem 0 0 var(--color-dark--0);
+  box-shadow: -1px -1rem 0 0 var(--color-dark--0);
 }
