@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="../../global_styles.css" />
+    <link rel="stylesheet" href="./circular_item_navbars.css" />
+
+    <title>Document</title>
+  </head>
+  <body>
+    <div class="container">
+      <nav class="navbar">
+        <ul class="navbar-nav">
+          <li class="navbar-item active">
+            <a href="#" class="navbar-link">
+              <span class="navbar-icon">
+                <ion-icon name="home-outline" />
+              </span>
+              <span class="navbar-text">Home</span>
+            </a>
+          </li>
+          <li class="navbar-item">
+            <a href="#" class="navbar-link">
+              <span class="navbar-icon">
+                <ion-icon name="person-outline" />
+              </span>
+              <span class="navbar-text">Profile</span>
+            </a>
+          </li>
+          <li class="navbar-item">
+            <a href="#" class="navbar-link">
+              <span class="navbar-icon">
+                <ion-icon name="chatbubble-outline" />
+              </span>
+              <span class="navbar-text">Message</span>
+            </a>
+          </li>
+          <li class="navbar-item">
+            <a href="#" class="navbar-link">
+              <span class="navbar-icon">
+                <ion-icon name="camera-outline" />
+              </span>
+              <span class="navbar-text">Photos</span>
+            </a>
+          </li>
+          <li class="navbar-item">
+            <a href="#" class="navbar-link">
+              <span class="navbar-icon">
+                <ion-icon name="settings-outline" />
+              </span>
+              <span class="navbar-text">Settings</span>
+            </a>
+          </li>
+          <div class="indicator"></div>
+        </ul>
+      </nav>
+    </div>
+
+    <script>
+      var navbarItem = document.querySelectorAll(".navbar-item");
+      function activeLink() {
+        navbarItem.forEach((item) => item.classList.remove("active"));
+
+        this.classList.add("active");
+      }
+
+      navbarItem.forEach((item) => item.addEventListener("click", activeLink));
+    </script>
+
+    <script
+      type="module"
+      src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"
+    ></script>
+    <script
+      nomodule
+      src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"
+    ></script>
+  </body>
+</html>

@@ -1,0 +1,138 @@
+:root {
+  --color-sky--50: #f0f9ff;
+  --color-sky--100: #e0f2fe;
+  --color-sky--200: #bae6fd;
+  --color-sky--300: #7dd3fc;
+  --color-sky--400: #38bdf8;
+  --color-sky--500: #0ea5e9;
+  --color-sky--600: #0284c7;
+  --color-sky--700: #0369a1;
+  --color-sky--800: #075985;
+  --color-sky--900: #0c4a6e;
+  --color-sky--950: #082f49;
+}
+
+.container {
+  background-color: var(--color-dark--0);
+  height: 50vh;
+  margin: 25vh auto 0;
+  width: 80vw;
+
+  font-size: 1.6rem;
+  font-weight: 200;
+
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+}
+
+.navbar {
+  background-color: var(--color-dark--2);
+  border-radius: 1rem;
+  height: 7rem;
+  position: relative;
+  width: 40rem;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* UL */
+.navbar-nav {
+  height: 100%;
+  width: 35rem;
+  display: flex;
+}
+
+.navbar-nav .navbar-item {
+  margin: 0 auto;
+  position: relative;
+  width: 7rem;
+  height: 7rem;
+  z-index: 1;
+}
+
+.navbar-nav .navbar-link {
+  position: relative;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+
+  font-weight: 300;
+  text-align: center;
+  width: 100%;
+}
+
+.navbar-nav .navbar-icon {
+  color: var(--color-sky--200);
+  display: block;
+  font-size: 2rem;
+  line-height: 7.5rem;
+  position: relative;
+  text-align: center;
+  transition: all 0.5s ease-out;
+}
+
+.navbar-nav .navbar-text {
+  color: var(--color-sky--200);
+  font-size: 1.4rem;
+  letter-spacing: 0.05rem;
+  opacity: 0;
+  position: absolute;
+  transform: translateY(3.5rem);
+  transition: all 0.5s ease-out;
+}
+
+.navbar-nav .navbar-item.active .navbar-icon {
+  transform: translateY(-3.2rem);
+}
+
+.navbar-nav .navbar-item.active .navbar-text {
+  opacity: 1;
+  transform: translateY(1rem);
+}
+
+.indicator {
+  position: absolute;
+  top: -50%;
+  width: 7rem;
+  height: 7rem;
+
+  border-radius: 50%;
+  border: 0.6rem solid var(--color-dark--0);
+  background-color: var(--color-sky--900);
+  transition: all 0.5s ease-out;
+}
+
+.indicator::before {
+  content: "";
+
+  position: absolute;
+  top: 50%;
+  left: -2.2rem;
+
+  height: 2rem;
+  width: 2rem;
+
+  background-color: transparent;
+  border-top-right-radius: 2rem;
+  box-shadow: 0 -1rem 0 0 var(--color-dark--0);
+}
+
+.indicator::after {
+  content: "";
+
+  position: absolute;
+  top: 50%;
+  right: -2.2rem;
+
+  height: 2rem;
+  width: 2rem;
+
+  background-color: transparent;
+  border-top-left-radius: 2rem;
+  box-shadow: 0 -1rem 0 0 var(--color-dark--0);
+}
