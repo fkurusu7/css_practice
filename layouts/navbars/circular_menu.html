@@ -3,13 +3,12 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="../../global_styles.css" />
-    <link rel="stylesheet" href="./circular_item_navbars.css" />
-
-    <title>Document</title>
+    <link rel="stylesheet" href="circular_menu.css" />
+    <title>Circular NavBar with Active state Indicator</title>
   </head>
   <body>
     <div class="container">
+      <h1>Circular Active Menu</h1>
       <nav class="navbar">
         <ul class="navbar-nav">
           <li class="navbar-item active">
@@ -58,30 +57,37 @@
     </div>
 
     <script>
-      var navbarItem = document.querySelectorAll(".navbar-item");
-      function activeLink() {
-        // Add and remove active class from li items
-        navbarItem.forEach((item) => item.classList.remove("active"));
+      // get all navbar-item elements LI
+      const navbarItems = document.querySelectorAll(".navbar-item");
+
+      // create a function to activate links
+      function addActiveLinks() {
+        // Remove active class from all items
+        navbarItems.forEach((item) => item.classList.remove("active"));
+        //  add active class to current clicked element
         this.classList.add("active");
 
-        // Get the index of the clicked item
+        // Move the indicator to the active element
+        // get the indicator element
         const indicator = document.querySelector(".indicator");
-        const index = Array.from(navbarItem).indexOf(this);
+        // get the index of the current clicked element
+        const index = Array.from(navbarItems).indexOf(this);
 
-        // Calculate the cumulative width of previous items
-        const cumulativeWidth = Array.from(navbarItem)
+        // calculate the cumulative width of previous items
+        const cumulativeWidth = Array.from(navbarItems)
           .slice(0, index)
-          .reduce((sum, item) => {
-            return sum + item.getBoundingClientRect().width;
-          }, 0);
+          .reduce((acc, curr) => acc + curr.getBoundingClientRect().width, 0);
 
-        // Move the indicator only if this item was clicked
-        if (this === navbarItem[index]) {
+        // move the indicator only if this item was clicked
+        if (this === navbarItems[index]) {
           indicator.style.transform = `translateX(${cumulativeWidth}px)`;
         }
       }
 
-      navbarItem.forEach((item) => item.addEventListener("click", activeLink));
+      // add CLICK eventlistener navbar-item elements (LI)
+      navbarItems.forEach((item) =>
+        item.addEventListener("click", addActiveLinks)
+      );
     </script>
 
     <script
