@@ -1,0 +1,104 @@
+:root {
+  --color-dark--0: #242a2e;
+  --color-dark--1: #2d3439;
+  --color-dark--2: #42484d;
+
+  --color-sky--50: #f0f9ff;
+  --color-sky--100: #e0f2fe;
+  --color-sky--200: #bae6fd;
+  --color-sky--300: #7dd3fc;
+  --color-sky--400: #38bdf8;
+  --color-sky--500: #0ea5e9;
+  --color-sky--600: #0284c7;
+  --color-sky--700: #0369a1;
+  --color-sky--800: #075985;
+  --color-sky--900: #0c4a6e;
+  --color-sky--950: #082f49;
+
+  --transition--all: all 400ms ease-out;
+}
+
+html {
+  box-sizing: border-box;
+  font-size: 62.5%; /* 10px */
+}
+
+*,
+*::after,
+*::before {
+  box-sizing: inherit;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background-color: var(--color-dark--0);
+  color: var(--color-dark--0);
+  font-family: "Manrope", sans-serif;
+  font-size: 1.6rem;
+  font-weight: 500;
+  line-height: 1.6;
+}
+
+.container {
+  box-shadow: var(--color-dark--2) 0px 3px 8px;
+  background-color: currentColor;
+  height: 50vh;
+  margin: 25vh auto 0;
+  width: 80vw;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
+}
+
+h1 {
+  color: var(--color-sky--200);
+  text-align: center;
+  text-decoration: underline;
+}
+.avatars {
+  border: 1px solid red;
+  /* USER SETTINGS */
+  --avatar-count: 10;
+  --avatar-size: 50px;
+  --transition-duration: 500ms;
+
+  /* CALCULATIONS */
+  --column-size: calc(var(--avatar-size) / 2);
+
+  /* USE Calculations */
+  display: grid;
+  grid-template-columns: repeat(var(--avatar-count), var(--column-size));
+
+  transition: grid-template-columns var(--transition-duration) ease-out;
+  transition-delay: var(--transition-duration);
+  max-width: 80vw;
+}
+.avatars:hover,
+.avatars:focus-within {
+  --column-size: calc(var(--avatar-size) * 1.3);
+  transition-delay: 0ms;
+}
+
+.avatar {
+  border-radius: 100vw;
+  border: 5px solid var(--color-sky--200);
+  box-shadow: 0.05rem 0.05rem 0.25rem var(--color-sky--50);
+  width: var(--avatar-size);
+  aspect-ratio: 1;
+  object-fit: cover;
+  transition: scale var(--transition-duration) ease-out;
+}
+
+.avatar:hover,
+.avatar:focus {
+  scale: 1.8;
+  z-index: 2;
+}
+
+.avatar:hover + .avatar,
+.avatar:has(+ .avatar:hover) {
+  scale: 1.4;
+}
