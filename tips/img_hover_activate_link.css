@@ -28,7 +28,7 @@ html {
 
 body {
   background-color: var(--color-dark--0);
-  color: var(--color-light--2);
+  color: var(--color-light--3);
   font-family: "Manrope", sans-serif;
   font-size: 2rem;
   font-weight: 400;
@@ -37,11 +37,15 @@ body {
 
 .wrapper {
   border: 1px solid var(--color-dark--2);
-  background-color: var(--color-dark--1);
+  background-color: transparent;
   border-radius: 2rem;
   height: 80vh;
   margin: 10vh auto 0;
   width: 90vw;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .speakers-grid {
@@ -58,10 +62,21 @@ body {
     auto [list-end];
 
   position: relative;
+  width: 70%;
 
   ul {
     grid-area: list;
     list-style: none;
+
+    ::before {
+      content: "{";
+      color: var(--color-dark--2);
+      font-size: 15rem;
+      position: absolute;
+      left: 42%;
+      top: 46%;
+      transform: translate(-42%, -46%);
+    }
   }
 
   img {
@@ -69,8 +84,40 @@ body {
     left: 0;
     top: 0;
 
-    height: 8rem;
-    width: 8rem;
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+    border-radius: 0.5rem;
+
+    transition: 500ms ease-out;
+  }
+
+  a {
+    text-decoration: none;
+    background-color: var(--color-brand--2);
+    color: var(--color-dark--2);
+    &:is(:hover, :focus) {
+      background-color: var(--color-brand--1);
+      color: var(--color-dark--2);
+
+      img {
+        scale: 2;
+        height: 10rem;
+        width: 10rem;
+        z-index: 2;
+      }
+    }
+
+    &:not(:hover, :focus) img {
+      animation: z-index-hack 500ms;
+    }
+  }
+}
+
+@keyframes z-index-hack {
+  0%,
+  100% {
+    z-index: 1;
   }
 }
 
