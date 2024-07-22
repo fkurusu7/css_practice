@@ -1,0 +1,119 @@
+@import "https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;700;800&display=swap";
+
+/* These CSS variables are global, so they are available in all CSS modules */
+:root {
+  --color-brand--1: #ffb545;
+  --color-brand--2: #00c46a;
+
+  --color-dark--0: #242a2e;
+  --color-dark--1: #2d3439;
+  --color-dark--2: #42484d;
+  --color-light--1: #aaa;
+  --color-light--2: #ececec;
+  --color-light--3: #d6dee0;
+}
+
+*,
+*::after,
+*::before {
+  box-sizing: inherit;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  box-sizing: border-box;
+  font-size: 62.5%;
+}
+
+body {
+  background-color: var(--color-dark--0);
+  color: var(--color-light--2);
+  font-family: "Manrope", sans-serif;
+  font-size: 2rem;
+  font-weight: 400;
+  line-height: 1.6;
+}
+
+.wrapper {
+  border: 1px solid var(--color-dark--2);
+  background-color: var(--color-dark--1);
+  border-radius: 2rem;
+  height: 80vh;
+  margin: 10vh auto 0;
+  width: 90vw;
+}
+
+.speakers-grid {
+  --column-count: 3;
+  --row-count: 5;
+  --column-size: 10rem;
+  --row-size: 5rem;
+
+  display: grid;
+  gap: 1rem;
+  grid-template-columns: repeat(var(--column-count), var(--column-size)) 6rem [list-start] 1fr [list-end];
+  grid-template-rows:
+    [list-start] auto repeat(var(--row-count), var(--row-size))
+    auto [list-end];
+
+  position: relative;
+
+  ul {
+    grid-area: list;
+    list-style: none;
+  }
+
+  img {
+    position: absolute;
+    left: 0;
+    top: 0;
+
+    height: 8rem;
+    width: 8rem;
+  }
+}
+
+/* ***************** */
+/* USE RANGES to position images in their own column and row */
+
+/* COLUMNS */
+/* 1st column */
+.speakers-grid li:nth-child(3n + 1) img {
+  grid-column: 1 / 2;
+}
+
+/* 2nd column */
+.speakers-grid li:nth-child(3n + 2) img {
+  grid-column: 2 / 3;
+}
+
+/* 3rd column */
+.speakers-grid li:nth-child(3n + 3) img {
+  grid-column: 3 / 4;
+}
+
+/* ROWS */
+/* 1st row */
+.speakers-grid li:nth-child(-n + 3) img {
+  grid-row: 2 / 3;
+}
+/* 2nd row */
+.speakers-grid li:nth-child(n + 4):nth-child(-n + 6) img {
+  grid-row: 3 / 4;
+}
+
+/* 3rd row */
+.speakers-grid li:nth-child(n + 7):nth-child(-n + 9) img {
+  grid-row: 4 / 5;
+}
+
+/* 4th row */
+.speakers-grid li:nth-child(n + 10):nth-child(-n + 12) img {
+  grid-row: 5 / 6;
+}
+
+/* 5th row */
+.speakers-grid li:nth-child(n + 13):nth-child(-n + 16) img {
+  grid-row: 6 / 7;
+}
