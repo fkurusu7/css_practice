@@ -146,7 +146,7 @@ a {
   &__arrow {
     /* update custom props in JS
         to update the direction */
-    --direction: 320deg;
+    --direction: 0deg;
     --size: 1rem;
 
     background: var(--clr-accent-dark);
@@ -237,7 +237,7 @@ a {
 
   &-days {
     display: flex;
-    justify-content: space-between;
+    justify-content: space-evenly;
   }
   &-day {
     opacity: 0;
