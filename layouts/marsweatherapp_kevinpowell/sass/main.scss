@@ -217,3 +217,140 @@ a {
     margin-left: 3px;
   }
 }
+
+.previous {
+  &-weather {
+    position: absolute;
+    bottom: 0;
+
+    background-color: var(--clr-light);
+    color: var(--clr-dark);
+    padding: 3rem;
+    transform: translateY(60%);
+    transition: transform 350ms ease-out;
+    width: 100%;
+
+    &__title {
+      text-align: center;
+    }
+  }
+
+  &-days {
+    display: flex;
+    justify-content: space-between;
+  }
+  &-day {
+    opacity: 0;
+    transition: opacity 700ms ease-out;
+
+    & > * {
+      margin: 0;
+    }
+
+    &__date {
+      font-size: 0.8rem;
+      color: var(--clr-gray);
+    }
+    &__temp {
+      font-size: 0.9rem;
+    }
+
+    &__more-info {
+      background-color: var(--clr-dark);
+      border: none;
+      border-radius: 100vmax;
+      color: var(--clr-light);
+      cursor: pointer;
+      font-size: 0.7rem;
+      margin-top: 1rem;
+      padding: 0.5rem 1rem;
+      text-transform: uppercase;
+      &:hover {
+        background-color: var(--clr-gray);
+      }
+    }
+  }
+}
+
+.previous-weather.show-weather {
+  transform: translateY(0);
+
+  .show-previous-weather-btn span {
+    display: block;
+    transform: rotate(180deg) translateY(-6px);
+  }
+
+  .previous-weather__title,
+  .previous-day {
+    animation: slideUpIn 750ms forwards;
+  }
+
+  .previous-day {
+    &:nth-child(1) {
+      animation-delay: 100ms;
+    }
+    &:nth-child(2) {
+      animation-delay: 125ms;
+    }
+    &:nth-child(3) {
+      animation-delay: 150ms;
+    }
+    &:nth-child(4) {
+      animation-delay: 175ms;
+    }
+    &:nth-child(5) {
+      animation-delay: 200ms;
+    }
+    &:nth-child(6) {
+      animation-delay: 225ms;
+    }
+    &:nth-child(7) {
+      animation-delay: 250ms;
+    }
+  }
+
+  .previous-weather__title {
+    text-align: left;
+  }
+}
+
+.show-previous-weather-btn {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%) translateY(calc(-100% - 3rem));
+
+  border: none;
+  outline: none;
+  background-color: var(--clr-light);
+  clip-path: polygon(50% 0, 0 100%, 100% 100%);
+  color: var(--clr-gray);
+  cursor: pointer;
+  font-size: var(--fs-h2);
+  font-family: inherit;
+  line-height: 1;
+  text-align: center;
+  width: 10rem;
+  transition: transform 350ms ease-out;
+
+  &:hover,
+  &:focus {
+    color: var(--clr-accent-dark);
+  }
+
+  span {
+    display: block;
+    transform: rotate(0);
+    transition: transform 300ms ease-out;
+  }
+}
+
+@keyframes slideUpIn {
+  0% {
+    opacity: 0;
+    transform: translateY(50%);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0%);
+  }
+}
