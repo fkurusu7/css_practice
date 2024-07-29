@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Min - Max - Clamp</title>
+    <style>
+      html {
+        box-sizing: border-box;
+      }
+      *,
+      *::after,
+      *::before {
+        box-sizing: inherit;
+        margin: 0;
+        padding: 0;
+      }
+
+      :root {
+        --clr-primary: #ee6352;
+        --clr-body: #242a2e;
+        --clr-container: #2d3439;
+        --clr-dark: #42484d;
+        --clr-light--1: #ececec;
+        --clr-light--2: #d6dee0;
+        --clr-light--3: rgb(214, 222, 224);
+      }
+
+      body {
+        background-color: var(--clr-body);
+        color: var(--clr-light--2);
+        font-family: "basic-sans", sans-serif;
+        font-size: 1.125em;
+        line-height: 1.6;
+        min-height: 100vh;
+
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+      .container {
+        background-color: var(--clr-container);
+        border-radius: 10px;
+        box-shadow: 0 0 0.2em var(--clr-primary);
+        padding: 2rem 3rem;
+
+        min-height: 50vh;
+        /* width: 70%;
+        max-width: 600px;
+        SAME as the line below this*/
+        /* width: min(500px, 70%); */
+        width: min(500px, 70%);
+        /* width: max(500px, 70%); */
+      }
+      .title {
+        color: var(--clr-primary);
+        text-align: center;
+        text-transform: uppercase;
+        margin-bottom: 1.5rem;
+
+        /* font-size: 2rem; */
+        font-size: clamp(2rem, 5vw, 5rem);
+        font-size: max(2rem, min(5vw, 5rem));
+      }
+      .paragraph {
+        background-color: var(--clr-);
+        border-radius: 10px;
+        box-shadow: 0 0 1em rgba(214, 222, 224, 0.4);
+        padding: 0.5rem;
+        text-align: justify;
+        /* width: 50%; */
+        /* 3 values: min, ideal-size, max  */
+        /* width: clamp(200px, 50%, 20rem); */
+
+        /* font-size: 1.1rem; */
+        font-size: max(1rem, min(1.5vw, 1.5rem));
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <h1 class="title">A catchy title here</h1>
+      <p class="paragraph">
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Ratione odio
+        expedita eveniet debitis dolorum molestias illo officiis ullam vero
+        dolores accusantium magnam, recusandae architecto placeat doloribus
+        pariatur modi rem similique. Consequuntur, at soluta debitis nisi
+        architecto eum numquam magnam neque!
+      </p>
+    </div>
+  </body>
+</html>
